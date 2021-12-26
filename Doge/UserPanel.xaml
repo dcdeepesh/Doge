@@ -7,7 +7,7 @@
              mc:Ignorable="d"
              x:Name="ThisUserPanel"
              d:DesignHeight="100" d:DesignWidth="200">
-    <Viewbox Height="80" HorizontalAlignment="Left">
+    <Viewbox Height="70" HorizontalAlignment="Left">
         <StackPanel Orientation="Horizontal" Margin="2  ">
             <Grid Width="40" Height="40">
                 <Grid.Clip>
@@ -18,7 +18,7 @@
 
             <Border Background="#121212" CornerRadius="5" VerticalAlignment="Center"
                     Margin="7" Padding="4">
-                <TextBlock Text="{Binding ElementName=ThisUserPanel, Path=Username}"
+                <TextBlock Text="{Binding ElementName=ThisUserPanel, Path=SpeakerName}"
                            VerticalAlignment="Center" FontSize="14" Foreground="White"/>
             </Border>
         </StackPanel>
