@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace IPCHandler {
     public class IPCHandler {
         static readonly string CLIENT_ID = "872000127513010206";
-        static readonly string ACCESS_TOKEN = "vav4Ae1dJeWozZZlgomSaFZObx9pSW";
+        static readonly string ACCESS_TOKEN = "ohTsP55hsGOhYuchF1ajMvWuzKbbqq";
         static readonly DiscordIPC client = new DiscordIPC(CLIENT_ID);
         static string currentChannelId;
 
@@ -21,17 +21,17 @@ namespace IPCHandler {
 
         static readonly VoiceChannelSelect.Args aVoiceChannelSelect = new VoiceChannelSelect.Args();
 
-        public static async Task InitAsync() {
+        static IPCHandler() {
+            OnVoiceChannelJoin += OnVoiceChannelJoinHandler;
+            OnVoiceChannelLeave += OnVoiceChannelLeaveHandler;
+        }
+
+        public static async Task InitAndStartEvents() {
             await client.InitAsync();
             await client.SendCommandAsync(new Authenticate.Args() {
                 access_token = ACCESS_TOKEN
             });
 
-            OnVoiceChannelJoin += OnVoiceChannelJoinHandler;
-            OnVoiceChannelLeave += OnVoiceChannelLeaveHandler;
-        }
-
-        public static async Task StartEventsAsync() {
             var response = await client.SendCommandAsync(new GetSelectedVoiceChannel.Args() { });
             if (response is null is false) {
                 currentChannelId = response.id;

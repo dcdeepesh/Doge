@@ -1,7 +1,6 @@
 ﻿using IPCHandler;
 
 using System;
-using System.Threading.Tasks;
 using System.Windows;
 
 namespace Doge {
@@ -9,14 +8,12 @@ namespace Doge {
         public MainWindow() {
             InitializeComponent();
             Speakers.Init(UserPanels);
-            Task.Run(async () => {
-                await IPCHandler.IPCHandler.InitAsync();
-                IPCHandler.IPCHandler.OnVoiceChannelJoin += OnChannelJoin;
-                IPCHandler.IPCHandler.OnVoiceChannelLeave += OnChannelLeave;
-                IPCHandler.IPCHandler.OnUserJoinOrUpdate += OnUserJoinOrUpdate;
-                IPCHandler.IPCHandler.OnUserLeave += OnUserLeave;
-                await IPCHandler.IPCHandler.StartEventsAsync();
-            });
+            
+            IPCHandler.IPCHandler.OnVoiceChannelJoin += OnChannelJoin;
+            IPCHandler.IPCHandler.OnVoiceChannelLeave += OnChannelLeave;
+            IPCHandler.IPCHandler.OnUserJoinOrUpdate += OnUserJoinOrUpdate;
+            IPCHandler.IPCHandler.OnUserLeave += OnUserLeave;
+            IPCHandler.IPCHandler.InitAndStartEvents();
         }
 
         protected override void OnClosed(EventArgs e) {
