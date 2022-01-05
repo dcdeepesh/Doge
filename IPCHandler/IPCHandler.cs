@@ -101,10 +101,11 @@ namespace IPCHandler {
             await client.SubscribeAsync(aVSUpdate);
             await client.SubscribeAsync(aVSDelete);
 
+            // Enumerate the speakers and fire events
             var selectedVC = await client.SendCommandAsync(new GetSelectedVoiceChannel.Args() { });
-            if (selectedVC.voice_states is null is false && selectedVC.voice_states.Count > 0)
-                foreach (var voiceState in selectedVC.voice_states)
-                    OnUserJoinOrUpdate?.Invoke(null, Speaker.Convert(voiceState));
+            if (selectedVC.voice_states?.Count > 0)
+                foreach (var voiceStateEx in selectedVC.voice_states)
+                    OnUserJoinOrUpdate?.Invoke(null, Speaker.Convert(voiceStateEx));
         }
 
         static async void OnVoiceChannelLeaveHandler(object sender, EventArgs args) {
