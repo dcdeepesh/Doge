@@ -30,5 +30,27 @@ namespace Doge {
         }
         public static readonly DependencyProperty SpeakerNameProperty =
             DependencyProperty.Register("SpeakerName", typeof(string), typeof(UserPanel), new PropertyMetadata(null));
+
+
+
+        public bool Mute {
+            get { return (bool) GetValue(MuteProperty); }
+            set { 
+                SetValue(MuteProperty, value);
+                MuteIcon.Visibility = value ? Visibility.Visible : Visibility.Collapsed;
+            }
+        }
+        public static readonly DependencyProperty MuteProperty =
+            DependencyProperty.Register("Mute", typeof(bool), typeof(UserPanel), new PropertyMetadata(false));
+
+        public bool Deaf {
+            get { return (bool) GetValue(DeafProperty); }
+            set {
+                SetValue(DeafProperty, value);
+                DeafIcon.Visibility = value ? Visibility.Visible : Visibility.Collapsed;
+            }
+        }
+        public static readonly DependencyProperty DeafProperty =
+            DependencyProperty.Register("Deaf", typeof(bool), typeof(UserPanel), new PropertyMetadata(false));
     }
 }

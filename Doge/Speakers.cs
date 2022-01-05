@@ -14,22 +14,25 @@ namespace Doge {
         }
 
         public static void AddOrUpdate(Speaker speaker) {
-            string uri = $"https://cdn.discordapp.com/avatars/{speaker.Id}/{speaker.AvatarHash}.png?size=64";
             bool found = false;
             foreach (var panel in panels.Children.OfType<UserPanel>()) {
                 if (panel.Speaker.Id == speaker.Id) {
                     found = true;
-                    panel.Avatar = new BitmapImage(new Uri(uri));
+                    panel.Avatar = new BitmapImage(new Uri(speaker.AvatarUrl));
                     panel.Speaker = speaker;
                     panel.SpeakerName = speaker.Name;
+                    panel.Mute = speaker.SelfMute;
+                    panel.Deaf = speaker.SelfDeaf;
                 }
             }
 
             if (!found) {
                 panels.Children.Add(new UserPanel() {
                     Speaker = speaker,
-                    Avatar = new BitmapImage(new Uri(uri)),
-                    SpeakerName = speaker.Name
+                    Avatar = new BitmapImage(new Uri(speaker.AvatarUrl)),
+                    SpeakerName = speaker.Name,
+                    Mute = speaker.SelfMute,
+                    Deaf = speaker.SelfDeaf
                 });
             }
         }

@@ -17,9 +17,19 @@
             </Grid>
 
             <Border Background="#121212" CornerRadius="5" VerticalAlignment="Center"
-                    Margin="7" Padding="4">
+                    Margin="0 7 3 7" Padding="4">
                 <TextBlock Text="{Binding ElementName=ThisUserPanel, Path=SpeakerName}"
                            VerticalAlignment="Center" FontSize="14" Foreground="White"/>
+            </Border>
+
+            <Border x:Name="MuteIcon" Visibility="Collapsed" Margin="0 7 3 7" Padding="3"
+                    Background="#121212" CornerRadius="5" VerticalAlignment="Center">
+                <Image Height="20" Source="pack://application:,,,/Resources/mute_white.png"/>
+            </Border>
+
+            <Border x:Name="DeafIcon" Visibility="Collapsed" Margin="0 7 3 7" Padding="3"
+                    Background="#121212" CornerRadius="5" VerticalAlignment="Center">
+                <Image Height="20" Source="pack://application:,,,/Resources/deaf_white.png"/>
             </Border>
         </StackPanel>
     </Viewbox>
