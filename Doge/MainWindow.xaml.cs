@@ -8,12 +8,14 @@ namespace Doge {
         public MainWindow() {
             InitializeComponent();
             Speakers.Init(UserPanels);
-            
+
             IPCHandler.IPCHandler.OnVoiceChannelJoin += OnChannelJoin;
             IPCHandler.IPCHandler.OnVoiceChannelLeave += OnChannelLeave;
             IPCHandler.IPCHandler.OnUserJoinOrUpdate += OnUserJoinOrUpdate;
             IPCHandler.IPCHandler.OnUserLeave += OnUserLeave;
+#pragma warning disable CS4014 // Unawaited async task
             IPCHandler.IPCHandler.InitAndStartEvents();
+#pragma warning restore CS4014 // Unawaited async task
         }
 
         protected override void OnClosed(EventArgs e) {

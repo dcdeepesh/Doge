@@ -1,5 +1,4 @@
-﻿using Dec.DiscordIPC.Entities;
-using Dec.DiscordIPC.Events;
+﻿using Dec.DiscordIPC.Events;
 
 namespace IPCHandler {
     public class Speaker {

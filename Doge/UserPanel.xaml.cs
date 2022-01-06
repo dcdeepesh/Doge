@@ -35,7 +35,7 @@ namespace Doge {
 
         public bool Mute {
             get { return (bool) GetValue(MuteProperty); }
-            set { 
+            set {
                 SetValue(MuteProperty, value);
                 MuteIcon.Visibility = value ? Visibility.Visible : Visibility.Collapsed;
             }
