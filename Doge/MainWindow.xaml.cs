@@ -17,9 +17,7 @@ namespace Doge {
             IPCHandler.IPCHandler.OnSpeakingStart += OnSpeakingStart;
             IPCHandler.IPCHandler.OnSpeakingStop += OnSpeakingStop;
 
-#pragma warning disable CS4014 // Unawaited async task
             IPCHandler.IPCHandler.InitAndStartEvents();
-#pragma warning restore CS4014 // Unawaited async task
         }
 
         protected override void OnClosed(EventArgs e) {
@@ -43,7 +41,7 @@ namespace Doge {
         }
 
         void OnUserJoinOrUpdate(object sender, Speaker speaker) {
-            if (speaker is null is false)
+            if (speaker is not null)
                 Dispatcher.Invoke(() => Speakers.AddOrUpdate(speaker));
         }
 

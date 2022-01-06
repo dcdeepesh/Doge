@@ -4,7 +4,7 @@ namespace IPCHandler {
     public class Speaker {
         public static Speaker Convert(VoiceStateCreate.Data data) {
             string avatarUrl;
-            if (data?.user?.avatar is null is false)
+            if (data?.user?.avatar is not null)
                 avatarUrl = $"https://cdn.discordapp.com/avatars/{data.user.id}/{data.user.avatar}.png?size=64";
             else {
                 int remainder = int.Parse(data.user.discriminator) % 5;

@@ -33,7 +33,7 @@ namespace IPCHandler {
             });
 
             var response = await client.SendCommandAsync(new GetSelectedVoiceChannel.Args() { });
-            if (response is null is false) {
+            if (response is not null) {
                 currentChannelId = response.id;
                 OnVoiceChannelJoin?.Invoke(null, response.id);
             }
