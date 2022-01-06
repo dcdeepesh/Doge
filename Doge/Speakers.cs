@@ -32,7 +32,9 @@ namespace Doge {
                     Avatar = new BitmapImage(new Uri(speaker.AvatarUrl)),
                     SpeakerName = speaker.Name,
                     Mute = speaker.SelfMute,
-                    Deaf = speaker.SelfDeaf
+                    Deaf = speaker.SelfDeaf,
+
+                    Opacity = 0.6
                 });
             }
         }

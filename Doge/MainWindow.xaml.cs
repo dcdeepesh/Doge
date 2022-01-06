@@ -1,6 +1,7 @@
 ﻿using IPCHandler;
 
 using System;
+using System.Linq;
 using System.Windows;
 
 namespace Doge {
@@ -13,6 +14,9 @@ namespace Doge {
             IPCHandler.IPCHandler.OnVoiceChannelLeave += OnChannelLeave;
             IPCHandler.IPCHandler.OnUserJoinOrUpdate += OnUserJoinOrUpdate;
             IPCHandler.IPCHandler.OnUserLeave += OnUserLeave;
+            IPCHandler.IPCHandler.OnSpeakingStart += OnSpeakingStart;
+            IPCHandler.IPCHandler.OnSpeakingStop += OnSpeakingStop;
+
 #pragma warning disable CS4014 // Unawaited async task
             IPCHandler.IPCHandler.InitAndStartEvents();
 #pragma warning restore CS4014 // Unawaited async task
@@ -45,6 +49,22 @@ namespace Doge {
 
         void OnUserLeave(object sender, string userId) {
             Dispatcher.Invoke(() => Speakers.Remove(userId));
+        }
+
+        void OnSpeakingStart(object sender, string userId) {
+            Dispatcher.Invoke(() => {
+                foreach (var panel in UserPanels.Children.OfType<UserPanel>())
+                    if (panel.Speaker.Id == userId)
+                        panel.Opacity = 1;
+            });
+        }
+
+        void OnSpeakingStop(object sender, string userId) {
+            Dispatcher.Invoke(() => {
+                foreach (var panel in UserPanels.Children.OfType<UserPanel>())
+                    if (panel.Speaker.Id == userId)
+                        panel.Opacity = 0.6;
+            });
         }
     }
 }

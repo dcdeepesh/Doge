@@ -7,7 +7,7 @@
              mc:Ignorable="d"
              x:Name="ThisUserPanel"
              d:DesignHeight="100" d:DesignWidth="200">
-    <Viewbox Height="50" HorizontalAlignment="Left" Opacity="0.7">
+    <Viewbox Height="50" HorizontalAlignment="Left">
         <StackPanel Orientation="Horizontal" Margin="3">
             <Grid Width="40" Height="40">
                 <Grid.Clip>
