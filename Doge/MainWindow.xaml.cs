@@ -17,7 +17,7 @@ namespace Doge {
             IPCHandler.IPCHandler.OnSpeakingStart += OnSpeakingStart;
             IPCHandler.IPCHandler.OnSpeakingStop += OnSpeakingStop;
 
-            IPCHandler.IPCHandler.InitAndStartEvents();
+            _ = IPCHandler.IPCHandler.InitAndStartEvents();
         }
 
         protected override void OnClosed(EventArgs e) {

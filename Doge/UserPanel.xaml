@@ -21,14 +21,24 @@
                            VerticalAlignment="Center" FontSize="14" Foreground="White"/>
             </Border>
 
-            <Border x:Name="MuteIcon" Background="#121212" CornerRadius="5" VerticalAlignment="Center" Margin="0 7 3 7" Padding="3"
+            <Border Background="#121212" CornerRadius="5" VerticalAlignment="Center" Margin="0 7 3 7" Padding="3"
                     Visibility="{Binding ElementName=ThisUserPanel, Path=Speaker.SelfMute, Converter={StaticResource B2VConverter}}">
                 <Image Height="20" Source="pack://application:,,,/Resources/mute_white.png"/>
             </Border>
 
-            <Border x:Name="DeafIcon" Background="#121212" CornerRadius="5" VerticalAlignment="Center" Margin="0 7 3 7" Padding="3"
+            <Border Background="#121212" CornerRadius="5" VerticalAlignment="Center" Margin="0 7 3 7" Padding="3"
                     Visibility="{Binding ElementName=ThisUserPanel, Path=Speaker.SelfDeaf, Converter={StaticResource B2VConverter}}">
                 <Image Height="20" Source="pack://application:,,,/Resources/deaf_white.png"/>
+            </Border>
+
+            <Border Background="#121212" CornerRadius="5" VerticalAlignment="Center" Margin="0 7 3 7" Padding="3"
+                    Visibility="{Binding ElementName=ThisUserPanel, Path=Speaker.Mute, Converter={StaticResource B2VConverter}}">
+                <Image Height="20" Source="pack://application:,,,/Resources/server_mute.png"/>
+            </Border>
+
+            <Border Background="#121212" CornerRadius="5" VerticalAlignment="Center" Margin="0 7 3 7" Padding="3"
+                    Visibility="{Binding ElementName=ThisUserPanel, Path=Speaker.Deaf, Converter={StaticResource B2VConverter}}">
+                <Image Height="20" Source="pack://application:,,,/Resources/server_deaf.png"/>
             </Border>
         </StackPanel>
     </Viewbox>
