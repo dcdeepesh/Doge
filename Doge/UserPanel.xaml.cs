@@ -15,7 +15,7 @@ namespace Doge {
             set { SetValue(AvatarProperty, value); }
         }
         public static readonly DependencyProperty AvatarProperty =
-            DependencyProperty.Register("Avatar", typeof(ImageSource), typeof(UserPanel), new PropertyMetadata(null));
+            DependencyProperty.Register("Avatar", typeof(ImageSource), typeof(UserPanel), new PropertyMetadata(default(ImageSource)));
 
         public Speaker Speaker {
             get { return (Speaker) GetValue(SpeakerProperty); }

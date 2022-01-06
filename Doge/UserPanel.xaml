@@ -7,8 +7,8 @@
              mc:Ignorable="d"
              x:Name="ThisUserPanel"
              d:DesignHeight="100" d:DesignWidth="200">
-    <Viewbox Height="70" HorizontalAlignment="Left">
-        <StackPanel Orientation="Horizontal" Margin="2  ">
+    <Viewbox Height="50" HorizontalAlignment="Left" Opacity="0.7">
+        <StackPanel Orientation="Horizontal" Margin="3">
             <Grid Width="40" Height="40">
                 <Grid.Clip>
                     <EllipseGeometry Center="20,20" RadiusX="20" RadiusY="20" />
@@ -17,7 +17,7 @@
             </Grid>
 
             <Border Background="#121212" CornerRadius="5" VerticalAlignment="Center"
-                    Margin="0 7 3 7" Padding="4">
+                    Margin="7 0 3 0" Padding="4">
                 <TextBlock Text="{Binding ElementName=ThisUserPanel, Path=SpeakerName}"
                            VerticalAlignment="Center" FontSize="14" Foreground="White"/>
             </Border>

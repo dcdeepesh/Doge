@@ -18,7 +18,7 @@ namespace Doge {
             foreach (var panel in panels.Children.OfType<UserPanel>()) {
                 if (panel.Speaker.Id == speaker.Id) {
                     found = true;
-                    panel.Avatar = new BitmapImage(new Uri(speaker.AvatarUrl));
+                    // TOFIX: updating avatar image makes it disappear
                     panel.Speaker = speaker;
                     panel.SpeakerName = speaker.Name;
                     panel.Mute = speaker.SelfMute;

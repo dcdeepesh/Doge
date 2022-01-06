@@ -7,8 +7,10 @@ namespace IPCHandler {
             string avatarUrl;
             if (data?.user?.avatar is null is false)
                 avatarUrl = $"https://cdn.discordapp.com/avatars/{data.user.id}/{data.user.avatar}.png?size=64";
-            else
-                avatarUrl = $"https://cdn.discordapp.com/embed/avatars/{data.user.discriminator}.png?size=64";
+            else {
+                int remainder = int.Parse(data.user.discriminator) % 5;
+                avatarUrl = $"https://cdn.discordapp.com/embed/avatars/{remainder}.png?size=64";
+            }
 
             return new Speaker() {
                 Id = data.user.id,
@@ -18,7 +20,7 @@ namespace IPCHandler {
                 Mute = data.voice_state.mute.GetValueOrDefault(),
                 Deaf = data.voice_state.deaf.GetValueOrDefault(),
                 SelfMute = data.voice_state.self_mute.GetValueOrDefault(),
-                SelfDeaf = data.voice_state.deaf.GetValueOrDefault()
+                SelfDeaf = data.voice_state.self_deaf.GetValueOrDefault()
             };
         }
 
