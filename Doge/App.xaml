@@ -4,6 +4,6 @@
              xmlns:local="clr-namespace:Doge"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <BooleanToVisibilityConverter x:Key="B2VConverter"/>
     </Application.Resources>
 </Application>

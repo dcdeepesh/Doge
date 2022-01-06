@@ -24,12 +24,12 @@ namespace IPCHandler {
         }
 
         public string Id;
-        public string Name;
-        public string AvatarUrl;
+        public string Name { get; set; }
+        public string AvatarUrl { get; set; }
 
-        public bool Mute;
-        public bool Deaf;
-        public bool SelfMute;
-        public bool SelfDeaf;
+        public bool Mute { get; set; }
+        public bool Deaf { get; set; }
+        public bool SelfMute { get; set; }
+        public bool SelfDeaf { get; set; }
     }
 }

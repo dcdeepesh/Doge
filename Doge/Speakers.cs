@@ -1,9 +1,7 @@
 ﻿using IPCHandler;
 
-using System;
 using System.Linq;
 using System.Windows.Controls;
-using System.Windows.Media.Imaging;
 
 namespace Doge {
     internal class Speakers {
@@ -18,22 +16,13 @@ namespace Doge {
             foreach (var panel in panels.Children.OfType<UserPanel>()) {
                 if (panel.Speaker.Id == speaker.Id) {
                     found = true;
-                    // TOFIX: updating avatar image makes it disappear
                     panel.Speaker = speaker;
-                    panel.SpeakerName = speaker.Name;
-                    panel.Mute = speaker.SelfMute;
-                    panel.Deaf = speaker.SelfDeaf;
                 }
             }
 
             if (!found) {
                 panels.Children.Add(new UserPanel() {
                     Speaker = speaker,
-                    Avatar = new BitmapImage(new Uri(speaker.AvatarUrl)),
-                    SpeakerName = speaker.Name,
-                    Mute = speaker.SelfMute,
-                    Deaf = speaker.SelfDeaf,
-
                     Opacity = 0.6
                 });
             }
