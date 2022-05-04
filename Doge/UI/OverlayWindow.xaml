@@ -4,8 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        WindowStyle="None" AllowsTransparency="True" Background="#00000000"
-        SizeToContent="WidthAndHeight" Topmost="True"
-        Title="Doge Overlay">
+        Top="{Binding WindowTop}" Left="{Binding WindowLeft}"
+        SizeToContent="WidthAndHeight" Topmost="True" Title="Doge Overlay"
+        WindowStyle="None" AllowsTransparency="True" Background="#00000000">
     <StackPanel x:Name="SpeakerPanels" HorizontalAlignment="Left"/>
 </Window>
