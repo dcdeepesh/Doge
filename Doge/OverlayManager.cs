@@ -64,7 +64,7 @@ namespace Doge {
                     .OfType<SpeakerPanel>()
                     .Where(panel => panel.Speaker.Id == userId)
                     .Single()
-                    .Opacity = Preferences.Current.SpeakingOpacity / 100;
+                    .BindSpeakingOpacity();
             });
         }
 
@@ -77,7 +77,7 @@ namespace Doge {
                     .OfType<SpeakerPanel>()
                     .Where(panel => panel.Speaker.Id == userId)
                     .Single()
-                    .Opacity = Preferences.Current.IdleOpacity / 100;
+                    .BindIdleOpacity();
             });
         }
 

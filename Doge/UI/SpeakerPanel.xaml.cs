@@ -1,6 +1,7 @@
 ﻿using IPCHandler;
 
 using System.Windows.Controls;
+using System.Windows.Data;
 
 namespace Doge {
     public partial class SpeakerPanel : UserControl {
@@ -19,7 +20,23 @@ namespace Doge {
             Speaker = speaker;
             DataContext = Speaker;
             InitializeComponent();
-            Opacity = Preferences.Current.IdleOpacity / 100;
+            BindIdleOpacity();
+        }
+
+        public void BindIdleOpacity() {
+            SetBinding(OpacityProperty,
+                new Binding(nameof(Preferences.Current.IdleOpacity)) {
+                    Source = Preferences.Current,
+                    Mode = BindingMode.TwoWay
+                });
+        }
+
+        public void BindSpeakingOpacity() {
+            SetBinding(OpacityProperty,
+                new Binding(nameof(Preferences.Current.SpeakingOpacity)) {
+                    Source = Preferences.Current,
+                    Mode = BindingMode.TwoWay
+                });
         }
     }
 }

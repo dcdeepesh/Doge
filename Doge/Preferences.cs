@@ -28,7 +28,7 @@ namespace Doge {
         public bool DisplayNamesAlways { get; set; } = true;
         public bool DisplayNamesSpeaking { get; set; }
 
-        private double _idleOpacity = 20;
+        private double _idleOpacity = 0.4;
         public double IdleOpacity {
             get => _idleOpacity;
             set {
@@ -37,7 +37,7 @@ namespace Doge {
             }
         }
 
-        private double _speakingOpacity = 20;
+        private double _speakingOpacity = 1;
         public double SpeakingOpacity {
             get => _speakingOpacity;
             set {

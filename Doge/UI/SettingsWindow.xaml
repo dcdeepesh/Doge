@@ -42,11 +42,11 @@
                 </Grid.RowDefinitions>
                 <Label  Grid.Row="0" Grid.Column="0" Content="When idle"/>
                 <Slider Grid.Row="0" Grid.Column="1" VerticalAlignment="Center"
-                        Minimum="0" Maximum="100" TickFrequency="1" IsSnapToTickEnabled="True"
+                        Maximum="1" TickFrequency="0.01" IsMoveToPointEnabled="True"
                         Value="{Binding IdleOpacity}"/>
                 <Label  Grid.Row="1" Grid.Column="0" Content="When speaking"/>
                 <Slider Grid.Row="1" Grid.Column="1" VerticalAlignment="Center"
-                        Minimum="0" Maximum="100" TickFrequency="1" IsSnapToTickEnabled="True" 
+                        Maximum="1" TickFrequency="0.01" IsMoveToPointEnabled="True"
                         Value="{Binding SpeakingOpacity}"/>
             </Grid>
         </GroupBox>
