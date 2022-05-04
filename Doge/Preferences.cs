@@ -1,13 +1,24 @@
 ﻿using Microsoft.Win32;
 
 using System;
+using System.ComponentModel;
 using System.Configuration;
 
 namespace Doge {
-    internal class Preferences {
-        #region The preferences object
+    internal class Preferences : INotifyPropertyChanged {
+        #region The preferences
 
-        public bool OverlayEnabled { get; set; } = true;
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private bool _overlayEnabled = true;
+        public bool OverlayEnabled {
+            get => _overlayEnabled;
+            set {
+                _overlayEnabled = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(OverlayEnabled)));
+            }
+        }
+
         public bool RunAtStartup { get; set; }
 
         public bool DisplayUsersAlways { get; set; } = true;
@@ -17,25 +28,49 @@ namespace Doge {
         public bool DisplayNamesAlways { get; set; } = true;
         public bool DisplayNamesSpeaking { get; set; }
 
-        public double IdleOpacity { get; set; } = 20;
-        public double SpeakingOpacity { get; set; } = 80;
+        private double _idleOpacity = 20;
+        public double IdleOpacity {
+            get => _idleOpacity;
+            set {
+                _idleOpacity = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(IdleOpacity)));
+            }
+        }
 
-        public int WindowTop { get; set; }
-        public int WindowLeft { get; set; }
+        private double _speakingOpacity = 20;
+        public double SpeakingOpacity {
+            get => _speakingOpacity;
+            set {
+                _speakingOpacity = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(SpeakingOpacity)));
+            }
+        }
+
+        private int _windowTop;
+        public int WindowTop {
+            get => _windowTop;
+            set {
+                _windowTop = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(WindowTop)));
+            }
+        }
+
+        private int _windowLeft;
+        public int WindowLeft {
+            get => _windowLeft;
+            set {
+                _windowLeft = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(WindowLeft)));
+            }
+        }
 
         #endregion
 
         #region Static helpers
 
         public static Preferences Current { get; set; }
-
-        public static void Load() {
-            Current = Loader.Load<Preferences>(ConfigurationManager.AppSettings["preferencesKey"]);
-        }
-
-        public static void Save() {
-            Loader.Save(ConfigurationManager.AppSettings["preferencesKey"], Current);
-        }
+        public static void Load() => Current = Loader.Load<Preferences>(ConfigurationManager.AppSettings["preferencesKey"]);
+        public static void Save() => Loader.Save(ConfigurationManager.AppSettings["preferencesKey"], Current);
 
         #endregion
 
