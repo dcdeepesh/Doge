@@ -19,6 +19,7 @@ namespace Doge {
             Speaker = speaker;
             DataContext = Speaker;
             InitializeComponent();
+            Opacity = Preferences.Current.IdleOpacity / 100;
         }
     }
 }
