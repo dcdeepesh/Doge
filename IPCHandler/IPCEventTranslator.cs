@@ -6,30 +6,28 @@ using System;
 using System.Threading.Tasks;
 
 namespace IPCHandler {
-    public class IPCHandler {
-        static readonly string CLIENT_ID = "872000127513010206";
-        static readonly string ACCESS_TOKEN = "ohTsP55hsGOhYuchF1ajMvWuzKbbqq";
-        static readonly DiscordIPC client = new DiscordIPC(CLIENT_ID);
-        static string currentChannelId;
-
+    public class IPCEventTranslator {
+        private static DiscordIPC client;
+        private static string currentChannelId;
+        private static readonly VoiceChannelSelect.Args aVoiceChannelSelect = new();
+        
         public static event EventHandler<string> OnVoiceChannelJoin;
         public static event EventHandler OnVoiceChannelLeave;
-        public static event EventHandler<Speaker> OnUserJoinOrUpdate;
+        public static event EventHandler<SpeakerDto> OnUserJoinOrUpdate;
         public static event EventHandler<string> OnUserLeave;
         public static event EventHandler<string> OnSpeakingStart;
         public static event EventHandler<string> OnSpeakingStop;
 
-        static readonly VoiceChannelSelect.Args aVoiceChannelSelect = new VoiceChannelSelect.Args();
-
-        static IPCHandler() {
+        static IPCEventTranslator() {
             OnVoiceChannelJoin += OnVoiceChannelJoinHandler;
             OnVoiceChannelLeave += OnVoiceChannelLeaveHandler;
         }
 
-        public static async Task InitAndStartEvents() {
+        public static async Task InitAndStartEventsAsync(string clientId, string accessToken) {
+            client = new(clientId);
             await client.InitAsync();
             await client.SendCommandAsync(new Authenticate.Args() {
-                access_token = ACCESS_TOKEN
+                access_token = accessToken
             });
 
             var response = await client.SendCommandAsync(new GetSelectedVoiceChannel.Args() { });
@@ -51,7 +49,7 @@ namespace IPCHandler {
             client.Dispose();
         }
 
-        static void OnVoiceChannelSelectHandler(object sender, VoiceChannelSelect.Data data) {
+        private static void OnVoiceChannelSelectHandler(object sender, VoiceChannelSelect.Data data) {
             if (data.channel_id is null) {
                 OnVoiceChannelLeave?.Invoke(sender, null);
             } else {
@@ -70,9 +68,9 @@ namespace IPCHandler {
         static readonly EventHandler<SpeakingStop.Data> hSpeakingStop =
             (sender, data) => OnSpeakingStop?.Invoke(sender, data.user_id);
         static readonly EventHandler<VoiceStateCreate.Data> hVSCreate =
-            (sender, data) => OnUserJoinOrUpdate?.Invoke(sender, Speaker.Convert(data));
+            (sender, data) => OnUserJoinOrUpdate?.Invoke(sender, SpeakerDto.From(data));
         static readonly EventHandler<VoiceStateUpdate.Data> hVSUpdate =
-            (sender, data) => OnUserJoinOrUpdate?.Invoke(sender, Speaker.Convert(data));
+            (sender, data) => OnUserJoinOrUpdate?.Invoke(sender, SpeakerDto.From(data));
         static readonly EventHandler<VoiceStateDelete.Data> hVSDelete =
             (sender, data) => OnUserLeave?.Invoke(sender, data.user.id);
 
@@ -105,7 +103,7 @@ namespace IPCHandler {
             var selectedVC = await client.SendCommandAsync(new GetSelectedVoiceChannel.Args() { });
             if (selectedVC.voice_states?.Count > 0)
                 foreach (var voiceStateEx in selectedVC.voice_states)
-                    OnUserJoinOrUpdate?.Invoke(null, Speaker.Convert(voiceStateEx));
+                    OnUserJoinOrUpdate?.Invoke(null, SpeakerDto.From(voiceStateEx));
         }
 
         static async void OnVoiceChannelLeaveHandler(object sender, EventArgs args) {

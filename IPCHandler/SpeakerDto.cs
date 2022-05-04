@@ -1,8 +1,19 @@
 ﻿using Dec.DiscordIPC.Events;
 
+using System.ComponentModel;
+
 namespace IPCHandler {
-    public class Speaker {
-        public static Speaker Convert(VoiceStateCreate.Data data) {
+    public class SpeakerDto : INotifyPropertyChanged {
+        public string Id { get; set; }
+        public string Name { get; set; }
+        public string AvatarUrl { get; set; }
+
+        public bool Mute { get; set; }
+        public bool Deaf { get; set; }
+        public bool SelfMute { get; set; }
+        public bool SelfDeaf { get; set; }
+
+        public static SpeakerDto From(VoiceStateCreate.Data data) {
             string avatarUrl;
             if (data?.user?.avatar is not null)
                 avatarUrl = $"https://cdn.discordapp.com/avatars/{data.user.id}/{data.user.avatar}.png?size=64";
@@ -11,7 +22,7 @@ namespace IPCHandler {
                 avatarUrl = $"https://cdn.discordapp.com/embed/avatars/{remainder}.png?size=64";
             }
 
-            return new Speaker() {
+            return new SpeakerDto() {
                 Id = data.user.id,
                 Name = data.nick ?? data.user.username,
                 AvatarUrl = avatarUrl,
@@ -23,13 +34,10 @@ namespace IPCHandler {
             };
         }
 
-        public string Id;
-        public string Name { get; set; }
-        public string AvatarUrl { get; set; }
+        #region Property change events
 
-        public bool Mute { get; set; }
-        public bool Deaf { get; set; }
-        public bool SelfMute { get; set; }
-        public bool SelfDeaf { get; set; }
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        #endregion
     }
 }

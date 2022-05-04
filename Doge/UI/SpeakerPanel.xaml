@@ -1,0 +1,56 @@
+﻿<UserControl x:Class="Doge.SpeakerPanel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d"
+             d:DesignHeight="100" d:DesignWidth="200">
+
+    <UserControl.Resources>
+        <BooleanToVisibilityConverter x:Key="B2VConverter"/>
+        <SolidColorBrush x:Key="BackgroundColorBrush" Color="#121212"/>
+        <Style TargetType="Border" x:Key="Icon">
+            <Style.Setters>
+                <Setter Property="Background" Value="{StaticResource BackgroundColorBrush}"/>
+                <Setter Property="CornerRadius" Value="5"/>
+                <Setter Property="VerticalAlignment" Value="Center"/>
+                <Setter Property="Padding" Value="3"/>
+                <Setter Property="Margin" Value="0 7 3 7"/>
+            </Style.Setters>
+        </Style>
+    </UserControl.Resources>
+
+    <Viewbox Height="50" HorizontalAlignment="Left">
+        <StackPanel Orientation="Horizontal" Margin="3">
+            <Grid Width="40" Height="40">
+                <Grid.Clip>
+                    <EllipseGeometry Center="20,20" RadiusX="20" RadiusY="20" />
+                </Grid.Clip>
+                <Image Source="{Binding AvatarUrl}" d:Source="../Resources/sample_avatar.png"/>
+            </Grid>
+
+            <Border Margin="7 0 3 0" Padding="4" CornerRadius="5" VerticalAlignment="Center"
+                    Background="{StaticResource BackgroundColorBrush}">
+                <TextBlock Text="{Binding Name}" d:Text="Krove" FontSize="14"
+                           VerticalAlignment="Center" Foreground="White"/>
+            </Border>
+
+            <Border Style="{StaticResource Icon}" Visibility="{Binding SelfMute, Converter={StaticResource B2VConverter}}">
+                <Image Height="20" Source="../Resources/mute_white.png"/>
+            </Border>
+
+            <Border Style="{StaticResource Icon}" Visibility="{Binding SelfDeaf, Converter={StaticResource B2VConverter}}">
+                <Image Height="20" Source="../Resources/deaf_white.png"/>
+            </Border>
+
+            <Border Style="{StaticResource Icon}" Visibility="{Binding Mute, Converter={StaticResource B2VConverter}}">
+                <Image Height="20" Source="../Resources/server_mute.png"/>
+            </Border>
+
+            <Border Style="{StaticResource Icon}" Visibility="{Binding Deaf, Converter={StaticResource B2VConverter}}">
+                <Image Height="20" Source="../Resources/server_deaf.png"/>
+            </Border>
+        </StackPanel>
+    </Viewbox>
+    
+</UserControl>
