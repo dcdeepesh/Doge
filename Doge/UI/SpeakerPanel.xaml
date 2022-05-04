@@ -7,7 +7,6 @@
              d:DesignHeight="100" d:DesignWidth="200">
 
     <UserControl.Resources>
-        <BooleanToVisibilityConverter x:Key="B2VConverter"/>
         <SolidColorBrush x:Key="BackgroundColorBrush" Color="#121212"/>
         <Style TargetType="Border" x:Key="Icon">
             <Style.Setters>

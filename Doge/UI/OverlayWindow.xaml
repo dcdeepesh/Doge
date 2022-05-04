@@ -4,7 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Top="{Binding WindowTop}" Left="{Binding WindowLeft}"
+        Top="{Binding WindowTop, Mode=TwoWay}" Left="{Binding WindowLeft, Mode=TwoWay}"
+        Visibility="{Binding OverlayEnabled, Mode=TwoWay, Converter={StaticResource B2VConverter}}"
         SizeToContent="WidthAndHeight" Topmost="True" Title="Doge Overlay"
         WindowStyle="None" AllowsTransparency="True" Background="#00000000">
     <StackPanel x:Name="SpeakerPanels" HorizontalAlignment="Left"/>
