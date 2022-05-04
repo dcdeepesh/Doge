@@ -10,7 +10,7 @@ namespace IPCHandler {
         private static DiscordIPC client;
         private static string currentChannelId;
         private static readonly VoiceChannelSelect.Args aVoiceChannelSelect = new();
-        
+
         public static event EventHandler<string> OnVoiceChannelJoin;
         public static event EventHandler OnVoiceChannelLeave;
         public static event EventHandler<SpeakerDto> OnUserJoinOrUpdate;

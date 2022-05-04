@@ -15,8 +15,7 @@ namespace Doge {
             IPCEventTranslator.OnSpeakingStart += OnSpeakingStart;
             IPCEventTranslator.OnSpeakingStop += OnSpeakingStop;
 
-            _ = IPCEventTranslator.InitAndStartEventsAsync(CLIENT_ID, ACCESS_TOKEN)
-                ;//.ConfigureAwait(false).GetAwaiter().GetResult();
+            _ = IPCEventTranslator.InitAndStartEventsAsync(CLIENT_ID, ACCESS_TOKEN);
         }
 
         public static void Dispose() {
@@ -26,7 +25,7 @@ namespace Doge {
             IPCEventTranslator.OnUserLeave -= OnUserLeave;
             IPCEventTranslator.OnSpeakingStart -= OnSpeakingStart;
             IPCEventTranslator.OnSpeakingStop -= OnSpeakingStop;
-            
+
             IPCEventTranslator.ShutdownAsync()
                 .ConfigureAwait(false).GetAwaiter().GetResult();
         }

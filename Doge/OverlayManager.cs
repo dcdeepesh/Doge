@@ -2,8 +2,8 @@
 
 using System;
 using System.Linq;
-using System.Windows.Controls;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace Doge {
     internal static class OverlayManager {
@@ -49,18 +49,9 @@ namespace Doge {
                 return;
 
             DispatchAsync(() => {
-                /*
-                SpeakerPanel panelToRemove = null;
-                foreach (var panel in SpeakerPanels.OfType<SpeakerPanel>())
-                    if (panel.Speaker.Id == userId)
-                        panelToRemove = panel;
-                if (panelToRemove != null)
-                    panels.Children.Remove(panelToRemove);
-                */
                 SpeakerPanels.Remove(SpeakerPanels
                     .OfType<SpeakerPanel>()
-                    .Where(panel => panel.Speaker.Id == userId)
-                    .Single());
+                    .Single(panel => panel.Speaker.Id == userId));
             });
         }
 

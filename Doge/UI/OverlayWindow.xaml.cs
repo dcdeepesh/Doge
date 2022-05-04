@@ -1,5 +1,4 @@
-﻿using IPCHandler;
-using System.Windows;
+﻿using System.Windows;
 
 namespace Doge {
     public partial class OverlayWindow : Window {

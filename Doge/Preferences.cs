@@ -1,7 +1,7 @@
-﻿using System;
-using System.Configuration;
+﻿using Microsoft.Win32;
 
-using Microsoft.Win32;
+using System;
+using System.Configuration;
 
 namespace Doge {
     internal class Preferences {
