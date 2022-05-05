@@ -3,6 +3,7 @@
 using System;
 using System.ComponentModel;
 using System.Configuration;
+using System.Reflection;
 
 namespace Doge {
     internal class Preferences : INotifyPropertyChanged {
@@ -19,7 +20,21 @@ namespace Doge {
             }
         }
 
-        public bool RunAtStartup { get; set; }
+        private bool _runAtStartup = true;
+        public bool RunAtStartup {
+            get => _runAtStartup;
+            set {
+                if (_runAtStartup != value) {
+                    _runAtStartup = value;
+
+                    using var subkey = Registry.CurrentUser.OpenSubKey(ConfigurationManager.AppSettings["startupSubkey"], true);
+                    if (value)
+                        subkey.SetValue("Doge", Assembly.GetEntryAssembly().Location);
+                    else
+                        subkey.DeleteValue("Doge", false);
+                }
+            }
+        }
 
         public bool DisplayUsersAlways { get; set; } = true;
         public bool DisplayUsersSpeaking { get; set; }
