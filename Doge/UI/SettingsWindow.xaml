@@ -6,18 +6,18 @@
         mc:Ignorable="d"
         Title="Doge settings"
         Closed="OnWindowClosed"
-        ResizeMode="NoResize" Width="350" SizeToContent="Height">
+        ResizeMode="NoResize" Width="330" SizeToContent="Height">
     <StackPanel Margin="10">
         <GroupBox Header="General" Padding="5">
             <StackPanel>
-                <CheckBox Content="Enable overlay" IsChecked="{Binding OverlayEnabled}"/>
-                <CheckBox Content="Run at startup" IsChecked="{Binding RunAtStartup}"/>
+                <CheckBox Content="Enable overlay" IsChecked="{Binding OverlayEnabled}" d:IsChecked="True"/>
+                <CheckBox Content="Run at startup" IsChecked="{Binding RunAtStartup}" d:IsChecked="True"/>
             </StackPanel>
         </GroupBox>
 
         <GroupBox Header="Display users">
             <StackPanel Margin="5">
-                <RadioButton GroupName="gDisplayUsers" Content="Always" IsChecked="{Binding DisplayUsersAlways}" />
+                <RadioButton GroupName="gDisplayUsers" Content="Always" IsChecked="{Binding DisplayUsersAlways}" d:IsChecked="True"/>
                 <RadioButton GroupName="gDisplayUsers" Content="Only when speaking" IsChecked="{Binding DisplayUsersSpeaking}" />
                 
 <!-- TODO check this behaviour
@@ -46,11 +46,13 @@
                 <Label  Grid.Row="0" Grid.Column="0" Content="When idle"/>
                 <Slider Grid.Row="0" Grid.Column="1" VerticalAlignment="Center"
                         Maximum="1" TickFrequency="0.01" IsMoveToPointEnabled="True"
-                        Value="{Binding IdleOpacity}"/>
+                        Value="{Binding IdleOpacity}" d:Value="0.4"
+                        AutoToolTipPlacement="BottomRight" AutoToolTipPrecision="2"/>
                 <Label  Grid.Row="1" Grid.Column="0" Content="When speaking"/>
                 <Slider Grid.Row="1" Grid.Column="1" VerticalAlignment="Center"
                         Maximum="1" TickFrequency="0.01" IsMoveToPointEnabled="True"
-                        Value="{Binding SpeakingOpacity}"/>
+                        Value="{Binding SpeakingOpacity}" d:Value="1"
+                        AutoToolTipPlacement="BottomRight" AutoToolTipPrecision="2"/>
             </Grid>
         </GroupBox>
 
