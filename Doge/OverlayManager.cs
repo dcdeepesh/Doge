@@ -60,11 +60,13 @@ namespace Doge {
                 return;
 
             DispatchAsync(() => {
-                SpeakerPanels
+                var panel = SpeakerPanels
                     .OfType<SpeakerPanel>()
                     .Where(panel => panel.Speaker.Id == userId)
-                    .Single()
-                    .BindSpeakingOpacity();
+                    .Single();
+                panel.BindSpeakingOpacity();
+                panel.UnbindAlwaysVisibility();
+                panel.Visibility = Visibility.Visible;
             });
         }
 
@@ -73,11 +75,12 @@ namespace Doge {
                 return;
 
             DispatchAsync(() => {
-                SpeakerPanels
+                var panel = SpeakerPanels
                     .OfType<SpeakerPanel>()
                     .Where(panel => panel.Speaker.Id == userId)
-                    .Single()
-                    .BindIdleOpacity();
+                    .Single();
+                panel.BindIdleOpacity();
+                panel.BindAlwaysVisibility();
             });
         }
 

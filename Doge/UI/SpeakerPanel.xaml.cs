@@ -21,6 +21,7 @@ namespace Doge {
             DataContext = Speaker;
             InitializeComponent();
             BindIdleOpacity();
+            BindAlwaysVisibility();
         }
 
         public void BindIdleOpacity() {
@@ -38,5 +39,16 @@ namespace Doge {
                     Mode = BindingMode.TwoWay
                 });
         }
+
+        public void BindAlwaysVisibility() {
+            SetBinding(VisibilityProperty,
+                new Binding(nameof(Preferences.Current.DisplayUsersAlways)) {
+                    Source = Preferences.Current,
+                    Mode = BindingMode.TwoWay,
+                    Converter = new BooleanToVisibilityConverter()
+                });
+        }
+
+        public void UnbindAlwaysVisibility() => BindingOperations.ClearBinding(this, VisibilityProperty);
     }
 }

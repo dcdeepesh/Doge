@@ -36,7 +36,15 @@ namespace Doge {
             }
         }
 
-        public bool DisplayUsersAlways { get; set; } = true;
+        private bool _displayUsersAlways = true;
+        public bool DisplayUsersAlways {
+            get => _displayUsersAlways;
+            set {
+                _displayUsersAlways = value;
+                PropertyChanged?.Invoke(this, new(nameof(DisplayUsersAlways)));
+            }
+        }
+
         public bool DisplayUsersSpeaking { get; set; }
         //public bool DisplayUsersNever { get; set; }
 
@@ -48,7 +56,7 @@ namespace Doge {
             get => _idleOpacity;
             set {
                 _idleOpacity = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(IdleOpacity)));
+                PropertyChanged?.Invoke(this, new(nameof(IdleOpacity)));
             }
         }
 
@@ -57,7 +65,7 @@ namespace Doge {
             get => _speakingOpacity;
             set {
                 _speakingOpacity = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(SpeakingOpacity)));
+                PropertyChanged?.Invoke(this, new(nameof(SpeakingOpacity)));
             }
         }
 
@@ -66,7 +74,7 @@ namespace Doge {
             get => _windowTop;
             set {
                 _windowTop = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(WindowTop)));
+                PropertyChanged?.Invoke(this, new(nameof(WindowTop)));
             }
         }
 
@@ -75,7 +83,7 @@ namespace Doge {
             get => _windowLeft;
             set {
                 _windowLeft = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(WindowLeft)));
+                PropertyChanged?.Invoke(this, new(nameof(WindowLeft)));
             }
         }
 
