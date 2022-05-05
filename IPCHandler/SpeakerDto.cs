@@ -1,9 +1,7 @@
 ﻿using Dec.DiscordIPC.Events;
 
-using System.ComponentModel;
-
 namespace IPCHandler {
-    public class SpeakerDto : INotifyPropertyChanged {
+    public class SpeakerDto {
         public string Id { get; set; }
         public string Name { get; set; }
         public string AvatarUrl { get; set; }
@@ -33,11 +31,5 @@ namespace IPCHandler {
                 SelfDeaf = data.voice_state.self_deaf.GetValueOrDefault()
             };
         }
-
-        #region Property change events
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        #endregion
     }
 }
