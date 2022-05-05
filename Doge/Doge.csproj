@@ -41,6 +41,9 @@
   <PropertyGroup>
     <StartupObject>Doge.App</StartupObject>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\doge-icon.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
@@ -123,6 +126,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\sample_avatar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\doge-icon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
