@@ -107,7 +107,7 @@ namespace Doge {
                 foreach (var property in type.GetProperties()) {
                     if (property.Name == "Current")
                         continue;
-                    var value = Registry.GetValue(baseKey, property.Name, property.GetValue(result));
+                    var value = Registry.GetValue(baseKey, property.Name, property.GetValue(result)) ?? property.GetValue(result);
                     var castedValue = Convert.ChangeType(value, property.PropertyType);
                     property.SetValue(result, castedValue);
                 }
@@ -117,7 +117,8 @@ namespace Doge {
 
             public static void Save<T>(string baseKey, T obj) {
                 foreach (var property in obj.GetType().GetProperties())
-                    Registry.SetValue(baseKey, property.Name, property.GetValue(obj).ToString());
+                    if (property.Name != "Current")
+                        Registry.SetValue(baseKey, property.Name, property.GetValue(obj).ToString());
             }
         }
 
