@@ -20,7 +20,7 @@ namespace Doge {
             }
         }
 
-        private bool _runAtStartup = true;
+        private bool _runAtStartup = false;
         public bool RunAtStartup {
             get => _runAtStartup;
             set {
