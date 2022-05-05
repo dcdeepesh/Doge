@@ -15,10 +15,12 @@
             </StackPanel>
         </GroupBox>
 
-        <GroupBox Header="Display users (avatars)">
+        <GroupBox Header="Display users">
             <StackPanel Margin="5">
                 <RadioButton GroupName="gDisplayUsers" Content="Always" IsChecked="{Binding DisplayUsersAlways}" />
                 <RadioButton GroupName="gDisplayUsers" Content="Only when speaking" IsChecked="{Binding DisplayUsersSpeaking}" />
+                
+<!-- TODO check this behaviour
                 <RadioButton GroupName="gDisplayUsers" Content="Never" IsChecked="{Binding DisplayUsersNever}" />
             </StackPanel>
         </GroupBox>
@@ -27,6 +29,7 @@
             <StackPanel Margin="5">
                 <RadioButton GroupName="gDisplayNames" Content="Always" IsChecked="{Binding DisplayNamesAlways}" />
                 <RadioButton GroupName="gDisplayNames" Content="Only when speaking" IsChecked="{Binding DisplayNamesSpeaking}" />
+-->
             </StackPanel>
         </GroupBox>
 

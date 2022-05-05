@@ -38,10 +38,10 @@ namespace Doge {
 
         public bool DisplayUsersAlways { get; set; } = true;
         public bool DisplayUsersSpeaking { get; set; }
-        public bool DisplayUsersNever { get; set; }
+        //public bool DisplayUsersNever { get; set; }
 
-        public bool DisplayNamesAlways { get; set; } = true;
-        public bool DisplayNamesSpeaking { get; set; }
+        //public bool DisplayNamesAlways { get; set; } = true;
+        //public bool DisplayNamesSpeaking { get; set; }
 
         private double _idleOpacity = 0.4;
         public double IdleOpacity {
