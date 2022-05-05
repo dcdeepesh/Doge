@@ -1,7 +1,8 @@
 ﻿<Application x:Class="Doge.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             StartupUri="UI\SettingsWindow.xaml">
+             ShutdownMode="OnExplicitShutdown"
+             Startup="OnStart" Exit="OnExit">
     <Application.Resources>
         <BooleanToVisibilityConverter x:Key="B2VConverter"/>
     </Application.Resources>
