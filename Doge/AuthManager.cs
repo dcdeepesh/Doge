@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace Doge {
     // TODO handle situation where refresh token gets expired (after an year)
+    // TODO whatif access token is invalidated before time?
     internal class AuthManager {
         private static readonly string TOKEN_URL = "https://discord.com/api/oauth2/token";
 

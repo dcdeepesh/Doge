@@ -98,7 +98,7 @@ namespace Doge {
             set {
                 if (authPending != value) {
                     authPending = value;
-                    PropertyChanged.Invoke(this, new(nameof(AuthPending)));
+                    PropertyChanged?.Invoke(this, new(nameof(AuthPending)));
                 }
             }
         }

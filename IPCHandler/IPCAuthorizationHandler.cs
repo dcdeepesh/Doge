@@ -7,8 +7,9 @@ using System.Threading.Tasks;
 namespace IPCHandler {
     public class IPCAuthorizationHandler {
         public static async Task<string> GetAuthCodeAsync(string clientId) {
-            DiscordIPC discord = new(clientId);
-            var response = await discord.SendCommandAsync(new Authorize.Args {
+            DiscordIPC discordIpc = new(clientId);
+            await discordIpc.InitAsync();
+            var response = await discordIpc.SendCommandAsync(new Authorize.Args {
                 client_id = clientId,
                 scopes = new List<string> {
                     Authenticate.OAuth2Scopes.RPC,
@@ -16,7 +17,7 @@ namespace IPCHandler {
                 }
             });
 
-            discord.Dispose();
+            discordIpc.Dispose();
             return response.code;
         }
     }
