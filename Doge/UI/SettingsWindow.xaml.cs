@@ -30,5 +30,9 @@ namespace Doge {
                 Left = workArea.Right - ActualWidth - margin;
             }
         }
+
+        private void OnClickConnect(object sender, RoutedEventArgs e) {
+            AuthManager.AuthorizeAsync();
+        }
     }
 }

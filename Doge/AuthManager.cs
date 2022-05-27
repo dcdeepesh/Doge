@@ -22,7 +22,7 @@ namespace Doge {
             }
         }
 
-        private static async Task AuthorizeAsync() {
+        public static async Task AuthorizeAsync() {
             var authCode = await IPCAuthorizationHandler.GetAuthCodeAsync(AuthData.CLIENT_ID);
 
             using HttpClient client = new();

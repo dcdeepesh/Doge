@@ -4,10 +4,20 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="Doge Settings" Icon="..\Resources\doge-icon.ico"
+        Title="Doge settings" Icon="..\Resources\doge-icon.ico"
         Closed="OnWindowClosed"
         ResizeMode="NoResize" Width="330" SizeToContent="Height">
     <StackPanel Margin="10">
+        <Border CornerRadius="5" Background="Orange" Padding="5"
+                Visibility="{Binding AuthPending, Converter={StaticResource B2VConverter}}">
+            <GroupBox Header="Hello" BorderBrush="Orange" BorderThickness="1" Padding="5">
+                <StackPanel>
+                    <TextBlock TextWrapping="Wrap">First step to use Doge is to connect it to Discord.</TextBlock>
+                    <Button Content="Connect to Discord" HorizontalAlignment="Left" Padding="3" Margin="0 5 0 0" Click="OnClickConnect" />
+                </StackPanel>
+            </GroupBox>
+        </Border>
+
         <GroupBox Header="General" Padding="5">
             <StackPanel>
                 <CheckBox Content="Enable overlay" IsChecked="{Binding OverlayEnabled}" d:IsChecked="True"/>
