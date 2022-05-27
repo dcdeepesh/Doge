@@ -1,7 +1,5 @@
 ﻿using IPCHandler;
 
-using System.Configuration;
-
 namespace Doge {
     internal static class IPCEventHandler {
         public static void Init() {

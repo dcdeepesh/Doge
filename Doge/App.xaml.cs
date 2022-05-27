@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Windows;
 
-using NotifyIcon = System.Windows.Forms.NotifyIcon;
 using MenuItem = System.Windows.Forms.MenuItem;
+using NotifyIcon = System.Windows.Forms.NotifyIcon;
 
 namespace Doge {
     public partial class App : Application {

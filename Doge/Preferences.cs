@@ -16,7 +16,7 @@ namespace Doge {
             get => _overlayEnabled;
             set {
                 _overlayEnabled = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(OverlayEnabled)));
+                PropertyChanged?.Invoke(this, new(nameof(OverlayEnabled)));
             }
         }
 
