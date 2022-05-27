@@ -6,7 +6,7 @@
         mc:Ignorable="d"
         Top="{Binding WindowTop, Mode=TwoWay}" Left="{Binding WindowLeft, Mode=TwoWay}"
         Visibility="{Binding OverlayEnabled, Mode=TwoWay, Converter={StaticResource B2VConverter}}"
-        SizeToContent="WidthAndHeight" Topmost="True"
+        SizeToContent="WidthAndHeight" Topmost="True" ShowInTaskbar="False"
         Title="Doge Overlay" Icon="..\Resources\doge-icon.ico"
         WindowStyle="None" AllowsTransparency="True" Background="#00000000">
     <StackPanel x:Name="SpeakerPanels" HorizontalAlignment="Left"/>

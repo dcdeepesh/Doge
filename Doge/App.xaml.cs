@@ -2,6 +2,7 @@
 using System.Windows;
 
 using MenuItem = System.Windows.Forms.MenuItem;
+using MouseButtons = System.Windows.Forms.MouseButtons;
 using NotifyIcon = System.Windows.Forms.NotifyIcon;
 
 namespace Doge {
@@ -40,7 +41,10 @@ namespace Doge {
                 })
             };
 
-            trayIcon.Click += (sender, args) => {
+            trayIcon.MouseClick += (sender, args) => {
+                if (args.Button != MouseButtons.Left)
+                    return;
+
                 Dispatcher.BeginInvoke(new Action(() => {
                     if (activeSettingsWindow is null) {
                         activeSettingsWindow = new SettingsWindow();

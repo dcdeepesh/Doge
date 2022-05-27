@@ -45,7 +45,14 @@ namespace Doge {
             }
         }
 
-        public bool DisplayUsersSpeaking { get; set; }
+        private bool _displayUsersSpeaking = false;
+        public bool DisplayUsersSpeaking {
+            get => _displayUsersSpeaking;
+            set {
+                _displayUsersSpeaking = value;
+                PropertyChanged?.Invoke(this, new(nameof(DisplayUsersSpeaking)));
+            }
+        }
         //public bool DisplayUsersNever { get; set; }
 
         //public bool DisplayNamesAlways { get; set; } = true;
