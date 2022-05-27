@@ -4,9 +4,6 @@ using System.Configuration;
 
 namespace Doge {
     internal static class IPCEventHandler {
-        private static readonly string ACCESS_TOKEN = ConfigurationManager.AppSettings["accessToken"];
-        private static readonly string CLIENT_ID = ConfigurationManager.AppSettings["clientId"];
-
         public static void Init() {
             IPCEventTranslator.OnVoiceChannelJoin += OnVoiceChannelJoin;
             IPCEventTranslator.OnVoiceChannelLeave += OnVoiceChannelLeave;
@@ -15,7 +12,7 @@ namespace Doge {
             IPCEventTranslator.OnSpeakingStart += OnSpeakingStart;
             IPCEventTranslator.OnSpeakingStop += OnSpeakingStop;
 
-            _ = IPCEventTranslator.InitAndStartEventsAsync(CLIENT_ID, ACCESS_TOKEN);
+            _ = IPCEventTranslator.InitAndStartEventsAsync(AuthData.CLIENT_ID, Preferences.Current.AccessToken);
         }
 
         public static void Dispose() {
