@@ -69,6 +69,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AuthData.cs" />
+    <None Include="AuthData_dummy.cs" />
+    <Compile Include="AuthManager.cs" />
     <Compile Include="Preferences.cs" />
     <Compile Include="UI\SettingsWindow.xaml.cs">
       <DependentUpon>SettingsWindow.xaml</DependentUpon>

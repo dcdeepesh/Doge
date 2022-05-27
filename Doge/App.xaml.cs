@@ -11,11 +11,15 @@ namespace Doge {
 
         private void OnStart(object sender, StartupEventArgs e) {
             Preferences.Load();
-            IPCEventHandler.Init();
+            AuthManager.PrepareAccessTokenAsync()
+                .ContinueWith(delegate {
+                    if (!Preferences.Current.AuthPending)
+                        IPCEventHandler.Init();
+                });
             InitTrayIcon();
 
             // Open the settings window on startup
-            Dispatcher.BeginInvoke(new Action(() => {
+            Dispatcher.BeginInvoke((Action) (() => {
                 activeSettingsWindow = new SettingsWindow();
                 activeSettingsWindow.Closed += (sender, args) => activeSettingsWindow = null;
                 activeSettingsWindow.Show();

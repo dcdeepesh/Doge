@@ -89,6 +89,26 @@ namespace Doge {
 
         #endregion
 
+        #region Auth-related values
+
+        // TODO notifypropertychanged
+        private bool authPending = true;
+        public bool AuthPending {
+            get => authPending;
+            set {
+                if (authPending != value) {
+                    authPending = value;
+                    PropertyChanged.Invoke(this, new(nameof(AuthPending)));
+                }
+            }
+        }
+
+        public string AccessToken { get; set; }
+        public string RefreshToken { get; set; }
+        public long AccessTokenValidUntil { get; set; }
+
+        #endregion
+
         #region Static helpers
 
         public static Preferences Current { get; set; }
