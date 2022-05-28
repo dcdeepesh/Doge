@@ -18,8 +18,8 @@ namespace Doge {
 
         public SpeakerPanel(SpeakerDto speaker) {
             Speaker = speaker;
-            DataContext = Speaker;
             InitializeComponent();
+            DataContext = Speaker;
             BindIdleOpacity();
             BindAlwaysVisibility();
         }
