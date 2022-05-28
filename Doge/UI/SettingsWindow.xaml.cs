@@ -7,7 +7,7 @@ namespace Doge {
         public SettingsWindow() {
             InitializeComponent();
             DataContext = Preferences.Current;
-            Loaded += (sender, args) => PositionWindow();
+            SizeChanged += (sender, args) => PositionWindow();
         }
 
         private void OnWindowClosed(object sender, EventArgs e) {
