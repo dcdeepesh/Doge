@@ -4,8 +4,8 @@ using System.Windows;
 namespace Doge {
     public partial class SettingsWindow : Window {
         public SettingsWindow() {
-            DataContext = Preferences.Current;
             InitializeComponent();
+            DataContext = Preferences.Current;
             Loaded += (sender, args) => PositionWindow();
         }
 
