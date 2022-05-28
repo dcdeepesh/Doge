@@ -367,3 +367,4 @@ FodyWeavers.xsd
 Test/
 TODO.txt
 AuthData.cs
+Setup/*.exe
