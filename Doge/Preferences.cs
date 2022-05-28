@@ -98,7 +98,6 @@ namespace Doge {
 
         #region Auth-related values
 
-        // TODO notifypropertychanged
         private bool authPending = true;
         public bool AuthPending {
             get => authPending;
