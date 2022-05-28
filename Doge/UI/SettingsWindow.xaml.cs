@@ -33,8 +33,9 @@ namespace Doge {
 
         private async void OnClickConnect(object sender, RoutedEventArgs e) {
             ConnectButton.IsEnabled = false;
-            await AuthManager.AuthorizeAsync();
-            IPCEventHandler.Init();
+            var authSuccessful = await AuthManager.AuthorizeAsync();
+            if (authSuccessful)
+                IPCEventHandler.Init();
             ConnectButton.IsEnabled = true;
         }
     }

@@ -23,8 +23,13 @@ namespace Doge {
             }
         }
 
-        public static async Task AuthorizeAsync() {
-            var authCode = await IPCAuthorizationHandler.GetAuthCodeAsync(AuthData.CLIENT_ID);
+        public static async Task<bool> AuthorizeAsync() {
+            string authCode;
+            try {
+                authCode = await IPCAuthorizationHandler.GetAuthCodeAsync(AuthData.CLIENT_ID);
+            } catch (IPCAuthorizationHandler.AuthorizationDeniedException) {
+                return false;
+            }
 
             using HttpClient client = new();
             var response = await client.PostAsync(TOKEN_URL, new FormUrlEncodedContent(new[] {
@@ -38,7 +43,7 @@ namespace Doge {
             // if something unexpected happens
             if (response.StatusCode != HttpStatusCode.OK &&
                 response.StatusCode != HttpStatusCode.BadRequest)
-                return;
+                return false;
 
             // all good, now either the code is valid or it's not
             var responseJson = await response.Content.ReadAsStringAsync();
@@ -56,6 +61,8 @@ namespace Doge {
             } else if (response.StatusCode.Equals(HttpStatusCode.BadRequest)) {
                 // invalid auth code, TODO what to do now?
             }
+
+            return true;
         }
 
         private static async Task RefreshTokenAsync() {
