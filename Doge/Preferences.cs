@@ -143,9 +143,13 @@ namespace Doge {
             }
 
             public static void Save<T>(string baseKey, T obj) {
-                foreach (var property in obj.GetType().GetProperties())
-                    if (property.Name != "Current")
-                        Registry.SetValue(baseKey, property.Name, property.GetValue(obj).ToString());
+                foreach (var property in obj.GetType().GetProperties()) {
+                    if (property.Name != "Current") {
+                        var value = property.GetValue(obj);
+                        if (value != null)
+                            Registry.SetValue(baseKey, property.Name, value.ToString());
+                    }
+                }
             }
         }
 
