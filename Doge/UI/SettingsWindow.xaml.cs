@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using System.Windows;
 
 namespace Doge {
@@ -31,8 +32,11 @@ namespace Doge {
             }
         }
 
-        private void OnClickConnect(object sender, RoutedEventArgs e) {
-            AuthManager.AuthorizeAsync();
+        private async void OnClickConnect(object sender, RoutedEventArgs e) {
+            ConnectButton.IsEnabled = false;
+            await AuthManager.AuthorizeAsync();
+            IPCEventHandler.Init();
+            ConnectButton.IsEnabled = true;
         }
     }
 }

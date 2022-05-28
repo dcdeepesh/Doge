@@ -13,7 +13,7 @@
             <GroupBox Header="Hello" BorderBrush="Orange" BorderThickness="1" Padding="5">
                 <StackPanel>
                     <TextBlock TextWrapping="Wrap">First step to use Doge is to connect it to Discord.</TextBlock>
-                    <Button Content="Connect to Discord" HorizontalAlignment="Left" Padding="3" Margin="0 5 0 0" Click="OnClickConnect" />
+                    <Button x:Name="ConnectButton" Content="Connect to Discord" HorizontalAlignment="Left" Padding="3" Margin="0 5 0 0" Click="OnClickConnect" />
                 </StackPanel>
             </GroupBox>
         </Border>
