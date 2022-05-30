@@ -37,9 +37,22 @@ namespace Doge {
                     .Where(panel => panel.Speaker.Id == speaker.Id);
 
                 if (matchedSpeakers.Any()) {
-                    matchedSpeakers.Single().Speaker = speaker;
+                    var matchedSpeaker = matchedSpeakers.Single();
+                    if (matchedSpeaker.Speaker.Name == speaker.Name) {
+                        matchedSpeaker.Speaker = speaker;
+                    } else {
+                        // Speaker name changed, remove and add it again to keep the list sorted
+                        SpeakerPanels.Remove(matchedSpeaker);
+                        int indexToInsertAt = SpeakerPanels
+                            .OfType<SpeakerPanel>()
+                            .Count(panel => string.Compare(panel.Speaker.Name, speaker.Name, StringComparison.OrdinalIgnoreCase) < 0);
+                        SpeakerPanels.Insert(indexToInsertAt, new SpeakerPanel(speaker));
+                    }
                 } else {
-                    SpeakerPanels.Add(new SpeakerPanel(speaker));
+                    int indexToInsertAt = SpeakerPanels
+                        .OfType<SpeakerPanel>()
+                        .Count(panel => string.Compare(panel.Speaker.Name, speaker.Name, StringComparison.OrdinalIgnoreCase) < 0);
+                    SpeakerPanels.Insert(indexToInsertAt, new SpeakerPanel(speaker));
                 }
             });
         }
