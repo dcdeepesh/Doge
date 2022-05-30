@@ -79,11 +79,11 @@
                     </Grid.RowDefinitions>
                     <Label  Grid.Row="0" Grid.Column="0" Content="X (Left):"/>
                     <Slider Grid.Row="0" Grid.Column="1" VerticalAlignment="Center"
-                                Minimum="0" Maximum="1920" TickFrequency="1" IsSnapToTickEnabled="True"
+                                Minimum="0" Maximum="{Binding WindowLeftMax}" TickFrequency="1" IsSnapToTickEnabled="True"
                                 Value="{Binding WindowLeft}"/>
                     <Label  Grid.Row="1" Grid.Column="0" Content="Y (Top):"/>
                     <Slider Grid.Row="1" Grid.Column="1" VerticalAlignment="Center"
-                                Minimum="0" Maximum="1080" TickFrequency="1" IsSnapToTickEnabled="True"
+                                Minimum="0" Maximum="{Binding WindowTopMax}" TickFrequency="1" IsSnapToTickEnabled="True"
                                 Value="{Binding WindowTop}"/>
                 </Grid>
             </DockPanel>

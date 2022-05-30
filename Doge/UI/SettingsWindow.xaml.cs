@@ -4,6 +4,9 @@ using System.Windows;
 namespace Doge {
     public partial class SettingsWindow : Window {
         public SettingsWindow() {
+            Preferences.Current.WindowLeftMax = (int) SystemParameters.WorkArea.Right;
+            Preferences.Current.WindowTopMax = (int) SystemParameters.WorkArea.Bottom;
+
             InitializeComponent();
             DataContext = Preferences.Current;
             SizeChanged += (sender, args) => PositionWindow();

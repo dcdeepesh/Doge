@@ -94,6 +94,24 @@ namespace Doge {
             }
         }
 
+        private int _windowTopMax;
+        public int WindowTopMax {
+            get => _windowTopMax;
+            set {
+                _windowTopMax = value;
+                PropertyChanged?.Invoke(this, new(nameof(WindowTopMax)));
+            }
+        }
+
+        private int _windowLeftMax;
+        public int WindowLeftMax {
+            get => _windowLeftMax;
+            set {
+                _windowLeftMax = value;
+                PropertyChanged?.Invoke(this, new(nameof(WindowLeftMax)));
+            }
+        }
+
         #endregion
 
         #region Auth-related values
