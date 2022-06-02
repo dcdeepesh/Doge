@@ -4,19 +4,26 @@ using System;
 using System.ComponentModel;
 using System.Configuration;
 using System.Reflection;
+using System.Runtime.CompilerServices;
 
 namespace Doge {
     internal class Preferences : INotifyPropertyChanged {
         #region The preferences
 
         public event PropertyChangedEventHandler PropertyChanged;
+        private void RaisePropertyChanged([CallerMemberName] string propertyName = null) {
+            if (propertyName != null)
+                PropertyChanged?.Invoke(this, new(propertyName));
+        }
 
         private bool _overlayEnabled = true;
         public bool OverlayEnabled {
             get => _overlayEnabled;
             set {
-                _overlayEnabled = value;
-                PropertyChanged?.Invoke(this, new(nameof(OverlayEnabled)));
+                if (_overlayEnabled != value) {
+                    _overlayEnabled = value;
+                    RaisePropertyChanged();
+                }
             }
         }
 
@@ -40,8 +47,10 @@ namespace Doge {
         public bool DisplayUsersAlways {
             get => _displayUsersAlways;
             set {
-                _displayUsersAlways = value;
-                PropertyChanged?.Invoke(this, new(nameof(DisplayUsersAlways)));
+                if (_displayUsersAlways != value) {
+                    _displayUsersAlways = value;
+                    RaisePropertyChanged();
+                }
             }
         }
 
@@ -49,8 +58,10 @@ namespace Doge {
         public bool DisplayUsersSpeaking {
             get => _displayUsersSpeaking;
             set {
-                _displayUsersSpeaking = value;
-                PropertyChanged?.Invoke(this, new(nameof(DisplayUsersSpeaking)));
+                if (_displayUsersSpeaking != value) {
+                    _displayUsersSpeaking = value;
+                    RaisePropertyChanged();
+                }
             }
         }
         //public bool DisplayUsersNever { get; set; }
@@ -62,8 +73,10 @@ namespace Doge {
         public double IdleOpacity {
             get => _idleOpacity;
             set {
-                _idleOpacity = value;
-                PropertyChanged?.Invoke(this, new(nameof(IdleOpacity)));
+                if (_idleOpacity != value) {
+                    _idleOpacity = value;
+                    RaisePropertyChanged();
+                }
             }
         }
 
@@ -71,8 +84,10 @@ namespace Doge {
         public double SpeakingOpacity {
             get => _speakingOpacity;
             set {
-                _speakingOpacity = value;
-                PropertyChanged?.Invoke(this, new(nameof(SpeakingOpacity)));
+                if (_speakingOpacity != value) {
+                    _speakingOpacity = value;
+                    RaisePropertyChanged();
+                }
             }
         }
 
@@ -80,8 +95,10 @@ namespace Doge {
         public int WindowTop {
             get => _windowTop;
             set {
-                _windowTop = value;
-                PropertyChanged?.Invoke(this, new(nameof(WindowTop)));
+                if (_windowTop != value) {
+                    _windowTop = value;
+                    RaisePropertyChanged();
+                }
             }
         }
 
@@ -89,8 +106,10 @@ namespace Doge {
         public int WindowLeft {
             get => _windowLeft;
             set {
-                _windowLeft = value;
-                PropertyChanged?.Invoke(this, new(nameof(WindowLeft)));
+                if (_windowLeft != value) {
+                    _windowLeft = value;
+                    RaisePropertyChanged();
+                }
             }
         }
 
@@ -98,8 +117,10 @@ namespace Doge {
         public int WindowTopMax {
             get => _windowTopMax;
             set {
-                _windowTopMax = value;
-                PropertyChanged?.Invoke(this, new(nameof(WindowTopMax)));
+                if (_windowTopMax != value) {
+                    _windowTopMax = value;
+                    RaisePropertyChanged();
+                }
             }
         }
 
@@ -107,8 +128,10 @@ namespace Doge {
         public int WindowLeftMax {
             get => _windowLeftMax;
             set {
-                _windowLeftMax = value;
-                PropertyChanged?.Invoke(this, new(nameof(WindowLeftMax)));
+                if (_windowLeftMax != value) {
+                    _windowLeftMax = value;
+                    RaisePropertyChanged();
+                }
             }
         }
 
@@ -116,13 +139,13 @@ namespace Doge {
 
         #region Auth-related values
 
-        private bool authPending = true;
+        private bool _authPending = true;
         public bool AuthPending {
-            get => authPending;
+            get => _authPending;
             set {
-                if (authPending != value) {
-                    authPending = value;
-                    PropertyChanged?.Invoke(this, new(nameof(AuthPending)));
+                if (_authPending != value) {
+                    _authPending = value;
+                    RaisePropertyChanged();
                 }
             }
         }
