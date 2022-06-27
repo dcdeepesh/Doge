@@ -3,9 +3,11 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:doge="clr-namespace:Doge"
+        d:DataContext="{d:DesignInstance Type=doge:Preferences}"
         mc:Ignorable="d"
         Top="{Binding WindowTop, Mode=TwoWay}" Left="{Binding WindowLeft, Mode=TwoWay}"
-        Visibility="{Binding OverlayEnabled, Mode=TwoWay, Converter={StaticResource B2VConverter}}"
+        Visibility="{Binding OverlayVisible, Mode=TwoWay, Converter={StaticResource B2VConverter}}"
         SizeToContent="WidthAndHeight" Topmost="True" ShowInTaskbar="False"
         Title="Doge Overlay" Icon="..\Resources\doge-icon.ico"
         WindowStyle="None" AllowsTransparency="True" Background="#00000000">

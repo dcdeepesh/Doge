@@ -16,12 +16,40 @@ namespace Doge {
                 PropertyChanged?.Invoke(this, new(propertyName));
         }
 
+        // set by user
         private bool _overlayEnabled = true;
         public bool OverlayEnabled {
             get => _overlayEnabled;
             set {
                 if (_overlayEnabled != value) {
                     _overlayEnabled = value;
+                    OverlayVisible = OverlayAvailable && value;
+                    RaisePropertyChanged();
+                }
+            }
+        }
+
+        // set/used by OverlayManager
+        private bool _overlayAvailable = false;
+        public bool OverlayAvailable {
+            get => _overlayAvailable;
+            set {
+                if (_overlayAvailable != value) {
+                    _overlayAvailable = value;
+                    OverlayVisible = OverlayEnabled && value;
+                    RaisePropertyChanged();
+                }
+            }
+        }
+
+        // OverlayAvailable && OverlayEnabled (precedence erased one-way binding, hence this)
+        // setting either of the above updates this, and this is bound to OverlayWindow's visiblity
+        private bool _overlayVisible = false;
+        public bool OverlayVisible {
+            get => _overlayVisible;
+            set {
+                if (_overlayVisible != value) {
+                    _overlayVisible = value;
                     RaisePropertyChanged();
                 }
             }

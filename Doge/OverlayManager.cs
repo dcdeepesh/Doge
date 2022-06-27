@@ -14,7 +14,8 @@ namespace Doge {
             if (overlayWindow is null)
                 Dispatch(() => overlayWindow = new());
 
-            DispatchAsync(() => overlayWindow.Show());
+            //DispatchAsync(() => overlayWindow.Show());
+            DispatchAsync(() => Preferences.Current.OverlayAvailable = true);
         }
 
         public static void DeactivateOverlay() {
@@ -22,7 +23,8 @@ namespace Doge {
                 return;
 
             DispatchAsync(() => {
-                overlayWindow.Hide();
+                //overlayWindow.Hide();
+                DispatchAsync(() => Preferences.Current.OverlayAvailable = false);
                 SpeakerPanels.Clear();
             });
         }
