@@ -4,6 +4,8 @@
 
 A global overlay for Discord.
 
+![Doge screenshot](Documentation/doge-ss.png)
+
 It's like the default Discord overlay, except that it's visible all the time, over any window (except games because you have the default overlay for that), and is also a bit more customizable.
 
 
