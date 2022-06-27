@@ -9,32 +9,36 @@ It's like the default Discord overlay, except that it's visible all the time, ov
 
 ## Download and Installation
 
-Doge has been tested on 64-bit Windows 11, although it will work on other versions just fine. Download files can be found in the [latest release](https://github.com/dcdeepesh/Doge/releases/latest).
+Doge has been tested on 64-bit Windows 11, although it will work just fine on other versions (don't worry, this includes Windows 10). If, however, you find that it's not running properly on your device, you can always [ask for support](#contact-and-support).
 
-> Your browser, OS, antivirus etc. may warn you that Doge and/or its setup are harmful. This is just because the files are unsigned, those warnings can be safely ignored.
+Download files can be found in the [latest release here](https://github.com/dcdeepesh/Doge/releases/latest). Installation is a breeze.
+
+> ℹ️ Your browser, OS, antivirus etc. may warn you that Doge and/or its setup are harmful. This is just because the files are unsigned, I assure you Doge doesn't do anything shady. If you're still unsure, you can have your developer friend check the source code :).
 
 
 ## Usage
 
-Using Doge is simple, just start it from the desktop shortcut or the start menu entry (or set it to [run at startup](#run-at-startup) automatically), and you're good to go. Starting Doge will open the settings window by default, to assure you that it has started properly, as it takes a while to connect to your Discord client. This behaviour can be changed in the settings.
-
-> The first time you use Doge, you have to connect it to your Discord client (a big flashy box will remind of this). **And don't forget to [whiltelist yourself](#whitelisting-yourself)!**
+- Using Doge is simple, just open it from its desktop shortcut or start menu entry, unless you've set it to [run at startup automatically](#run-at-startup), and you're good to go. Opening Doge will open the settings window by default, to assure you that it has started properly, as it takes a while to connect to your Discord client and display the overlay (this behaviour can be changed in the settings).
+- The first time you open it, a flashy yellow box will remind you to connect Doge to Discord, as Doge can't access anything related to your Discord unless you allow it.
+- You'll need to [whiltelist yourself](#whitelisting-yourself) before you can enjoy the convenience Doge provides.
 
 
 ### Run at startup
 
-By default, Doge does _not_ run at startup, because it's annoying to have apps automatically run at startup without you telling them to. But it is recommended to do so, as it saves you from the hassle of starting it every time you want to use it and improves user experience. To enable Doge to run at startup, go to it's settings and enable that option.
+> ℹ️ This option isn't available yet.
 
-However, if you want to keep it disabled, you can start it from either the desktop shortcut or the start menu entry.
+By default, Doge does _not_ run at startup, because it's annoying to have apps automatically run at startup without you telling them to. However, it is highly recommended that you do so, as it saves you from the hassle of starting it every time you want to use it and improves user experience. To make Doge run at startup, enable the run at startup option in its settings.
+
+However, whether or not you choose to enable it, you can always start it from its desktop shortcut or start menu entry.
 
 
 ## Whitelisting yourself
 
-There's a small catch when using Doge. Because of how Discord's security features work, even if you connect Doge to your Discord client, it won't work until I whitelist you myself. Hopefully this will change in the future and manual whitelisting won't be necessary (efforts are being put to achieve this).
+There's a small catch when using Doge. Because of how Discord's security features work, even if you connect Doge to your Discord client, it won't work until I whitelist you myself. Hopefully this will change in the future and manual whitelisting won't be necessary (I'm trying to achieve this).
 
-Until then, [contact me](#contact-and-support) with your Discord username and discriminator (e.g. `Dummy#1254`; `<username>#<discriminator>`), and tell me that you want to be whitelisted, and unless I have an ongoing feud with you, you'll be whitelisted (typically within a few minutes unless I'm sleeping).
+Until then, drop a message in [this discussion](https://github.com/dcdeepesh/Doge/discussions/2), and unless I have an ongoing feud with you, you'll be whitelisted within a few minutes (unless I'm sleeping).
 
 
 ## Contact and support
 
-If you've found a bug, want to request a feature, request whitelisting,have a suggestion or have any other questions, you can contact me on Discord (`Krove#5477`), [email me](mailto:dcdeepesh7@gmail.com), or open an issue on GitHub. 
+If you've found a bug, want to request a feature, request whitelisting, have a suggestion or have any other questions, you can contact me on Discord (`Krove#5477`), [email me](mailto:dcdeepesh7@gmail.com), or [open an issue](https://github.com/dcdeepesh/Doge/issues/new).
