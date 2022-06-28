@@ -3,7 +3,7 @@
 
 #define MyAppName "Doge"
 #define MyAppVersion "1.0"
-#define MyAppPublisher "Deepesh Choudhary"
+#define MyAppPublisher "Krove"
 #define MyAppURL "https://github.com/dcdeepesh/Doge"
 #define MyAppExeName "Doge.exe"
 
