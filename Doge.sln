@@ -8,7 +8,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Doge", "Doge\Doge.csproj", 
 		{F60FE2C5-5751-48A1-8E8A-76A4C41E617C} = {F60FE2C5-5751-48A1-8E8A-76A4C41E617C}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IPCHandler", "IPCHandler\IPCHandler.csproj", "{F60FE2C5-5751-48A1-8E8A-76A4C41E617C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IPCHandler", "IPCHandler\IPCHandler.csproj", "{F60FE2C5-5751-48A1-8E8A-76A4C41E617C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{C544091E-C369-477B-A3F8-400705BB89A0}"
 	ProjectSection(ProjectDependencies) = postProject
@@ -32,7 +32,6 @@ Global
 		{C544091E-C369-477B-A3F8-400705BB89A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C544091E-C369-477B-A3F8-400705BB89A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C544091E-C369-477B-A3F8-400705BB89A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C544091E-C369-477B-A3F8-400705BB89A0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
