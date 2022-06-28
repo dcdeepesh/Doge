@@ -90,7 +90,7 @@
         </GroupBox>
 
         <TextBlock Margin="0 10 0 0">
-            <Hyperlink NavigateUri="https://github.com/dcdeepesh/Doge">Online help</Hyperlink>
+            <Hyperlink NavigateUri="https://github.com/dcdeepesh/Doge#doge" RequestNavigate="OnClickHyperlink">Online help</Hyperlink>
         </TextBlock>
     </StackPanel>
 </Window>

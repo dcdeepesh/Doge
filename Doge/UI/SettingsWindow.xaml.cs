@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Windows;
+using System.Windows.Navigation;
 
 namespace Doge {
     public partial class SettingsWindow : Window {
@@ -10,10 +12,6 @@ namespace Doge {
             InitializeComponent();
             DataContext = Preferences.Current;
             SizeChanged += (sender, args) => PositionWindow();
-        }
-
-        private void OnWindowClosed(object sender, EventArgs e) {
-            Preferences.Save();
         }
 
         private void PositionWindow() {
@@ -34,12 +32,20 @@ namespace Doge {
             }
         }
 
+        private void OnWindowClosed(object sender, EventArgs e) {
+            Preferences.Save();
+        }
+
         private async void OnClickConnect(object sender, RoutedEventArgs e) {
             ConnectButton.IsEnabled = false;
             var authSuccessful = await AuthManager.AuthorizeAsync();
             if (authSuccessful)
                 IPCEventHandler.Init();
             ConnectButton.IsEnabled = true;
+        }
+
+        private void OnClickHyperlink(object sender, RequestNavigateEventArgs e) {
+            Process.Start(e.Uri.ToString());
         }
     }
 }
