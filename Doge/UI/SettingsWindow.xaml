@@ -21,7 +21,7 @@
         <GroupBox Header="General" Padding="5">
             <StackPanel>
                 <CheckBox Content="Enable overlay" IsChecked="{Binding OverlayEnabled}" d:IsChecked="True"/>
-                <CheckBox Content="Run at startup" IsChecked="{Binding RunAtStartup}"/>
+                <CheckBox Content="Run at startup" Visibility="Collapsed"  IsChecked="{Binding RunAtStartup}"/>
             </StackPanel>
         </GroupBox>
 
