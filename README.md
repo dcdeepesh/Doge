@@ -38,7 +38,7 @@ However, whether or not you choose to enable it, you can always start it from it
 
 There's a small catch when using Doge. Because of how Discord's security features work, even if you connect Doge to your Discord client, it won't work until I whitelist you myself. Hopefully this will change in the future and manual whitelisting won't be necessary (I'm trying to achieve this).
 
-Until then, drop a message in [this discussion](https://github.com/dcdeepesh/Doge/discussions/2), and unless I have an ongoing feud with you, you'll be whitelisted within a few minutes (unless I'm sleeping).
+Until then, drop a message in [this discussion](https://github.com/dcdeepesh/Doge/discussions/2), and unless I have an ongoing feud with you, you'll be whitelisted within a few minutes (unless I'm sleeping). Alternatively, if you don't have a GitHub account, you can contact me in other ways (see below), providing your Discord username and discriminator and requesting whitelisting.
 
 
 ## Contact and support
