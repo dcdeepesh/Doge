@@ -44,3 +44,14 @@ Until then, drop a message in [this discussion](https://github.com/dcdeepesh/Dog
 ## Contact and support
 
 If you've found a bug, want to request a feature, request whitelisting, have a suggestion or have any other questions, you can contact me on Discord (`Krove#5477`), [email me](mailto:dcdeepesh7@gmail.com), or [open an issue](https://github.com/dcdeepesh/Doge/issues/new).
+
+
+## FAQ
+
+- **Why did you name it 'Doge'?**
+
+  I'm glad you asked. [Here's your answer](https://krove.hashnode.dev/bts-doge#heading-reason-behind-the-name-doge).
+  
+- **Why does this FAQ only have two questions?**
+
+  Becuase I just needed an excuse to slip in my blog's link. This isn't an actual FAQ 😶.
